@@ -38,7 +38,18 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'thread_safe', '0.2.0'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'uuidtools'
+
+gem 'angularjs-rails', '>= 1.2.0.rc1'
+gem 'ngmin-rails'
+
+gem 'bootstrap-sass-rails'
+
+
+
+

@@ -7,10 +7,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
      auth = Authorization.find_by_provider_and_uid("twitter", uid)
 
      if auth
-       # return the user associated with the Authorization
        user = auth.user
      else
-       # Is a user isn't signed-in, then find or create the user
        unless current_user
          unless user = User.find_by_name(name)
            user = User.create({
@@ -23,7 +21,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
          user = current_user
        end
 
-       # Finally, create an authorization for the current user
        unless auth = user.authorizations.find_by_provider("twitter")
          auth = user.authorizations.build(provider: "twitter", uid: uid)
          user.authorizations << auth
